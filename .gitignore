@@ -262,3 +262,4 @@ __pycache__/
 *.vcxproj
 /Leetcod_way/Leetcod_way/Leetcod_way.vcxproj.filters
 *.sln
+/Leetcod_way/Leetcod_way/src.cpp
