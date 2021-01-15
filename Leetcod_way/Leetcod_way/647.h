@@ -59,7 +59,7 @@ public:
 			else
 				break;
 		}
-			return count;
+		return count;
 	}
 
 	int style_2(string& s, int i)

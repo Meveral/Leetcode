@@ -7,8 +7,6 @@
 
 例如，给定如下二叉搜索树:  root = [6,2,8,0,4,7,9,null,null,3,5]
 
-
-
  
 
 示例 1:
@@ -26,23 +24,21 @@
 链接：https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
- 
 ***************************************/
 #include"dft.h"
 
 //Definition for a binary tree node.
 struct TreeNode {
-     int val;
-     TreeNode *left;
-     TreeNode *right;
-     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
- 
 
 class Solution {
 public:
 	TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-//		vector<int> post_order{};
+		//		vector<int> post_order{};
 		if (root == NULL)
 			return NULL;
 		vector<TreeNode*> p_fathers{};
@@ -50,7 +46,7 @@ public:
 		find_it(root, p, p_fathers);
 		find_it(root, q, q_fathers);
 
-		TreeNode* tmp{NULL};
+		TreeNode* tmp{ NULL };
 		for (auto& it : p_fathers)
 		{
 			for (auto& itt : q_fathers)
@@ -60,10 +56,9 @@ public:
 			}
 		}
 		return tmp;
-
 	}
 
-	TreeNode* find_it(TreeNode* root,TreeNode* p,vector<TreeNode*>& pfathers)
+	TreeNode* find_it(TreeNode* root, TreeNode* p, vector<TreeNode*>& pfathers)
 	{
 		if (root == NULL)
 			return NULL;
@@ -83,16 +78,4 @@ public:
 			else return NULL;
 		}
 	}
-
-
 };
-
-
-
-
-
-
-
-
-
-

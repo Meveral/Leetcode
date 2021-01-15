@@ -8,7 +8,6 @@ using std::vector;
 using std::string;
 
 class UnionFind {
-
 public:
 
 	UnionFind() {
@@ -20,11 +19,10 @@ public:
 	{
 		if (index == parent[index])
 			return parent[index];
-		parent[index]= find(parent[index]);
+		parent[index] = find(parent[index]);
 		return parent[index];
 	}
 
-	
 	void merge(const int index1, const int index2)
 	{
 		parent[find(index2)] = find(index1);
@@ -33,7 +31,6 @@ public:
 private:
 
 	std::vector<int> parent;
-
 };
 class Solution {
 public:

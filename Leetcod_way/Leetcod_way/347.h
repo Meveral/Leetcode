@@ -19,17 +19,17 @@
 class Solution {
 public:
 
-	bool cmp(pair<int, int>& p1,pair<int,int>& p2)
+	bool cmp(pair<int, int>& p1, pair<int, int>& p2)
 	{
 		return p1.second > p2.second;
 	}
 
-	vector<int> topKFrequent(vector<int>& nums, int k) 
+	vector<int> topKFrequent(vector<int>& nums, int k)
 	{
 		map<int, int> counts;
-		priority_queue<pair<int, int>,vector<pair<int,int>>,decltype(&cmp)> que(cmp);
+		priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(&cmp)> que(cmp);
 		vector<int> ret;
-		
+
 		for (auto it : nums)
 			counts[it]++;
 
@@ -43,19 +43,13 @@ public:
 				que.emplace(make_pair(it.first, it.second));
 			}
 		}
-	
+
 		while (!que.empty())
 		{
 			ret.push_back(que.top().first);
 			que.pop();
 		}
 
-
-
-
 		return ret;
-
 	}
 };
-
-

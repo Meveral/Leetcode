@@ -57,15 +57,14 @@ public:
 
 		while (!nodes.empty())
 		{
-			
 			int dif;
 			auto opt = nodes.front();
 			nodes.pop();
-			
+
 			if (opt == NULL)
 				continue;
 
-			int left = find_height(opt ->left, height);
+			int left = find_height(opt->left, height);
 			int right = find_height(opt->right, height);
 			height[opt] = max(left, right) + 1;
 
@@ -78,7 +77,7 @@ public:
 				nodes.emplace(opt->right);
 			}
 		}
-			return 1;
+		return 1;
 	}
 
 	int find_height(TreeNode* root, map<TreeNode*, int>& mp)
@@ -89,11 +88,11 @@ public:
 		{
 			if (mp.find(root) != mp.end())
 				return mp[root];
-			else 
+			else
 			{
-				int left = find_height(root->left,mp);
-				int right= find_height(root->right,mp);
-				int tmp= max(left, right);
+				int left = find_height(root->left, mp);
+				int right = find_height(root->right, mp);
+				int tmp = max(left, right);
 				mp[root] = tmp + 1;
 				return  mp[root];
 			}

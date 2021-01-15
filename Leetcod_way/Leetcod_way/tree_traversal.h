@@ -8,13 +8,13 @@ struct TreeNode {
 	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-class tree_traversal 
+class tree_traversal
 {
 public:
-	void pre_order_recursive(TreeNode* root,  vector<TreeNode*>& ret)
+	void pre_order_recursive(TreeNode* root, vector<TreeNode*>& ret)
 	{
-		if (root == NULL) 
-			return ;
+		if (root == NULL)
+			return;
 		ret.push_back(root);
 		pre_order_recursive(root->left, ret);
 		pre_order_recursive(root->right, ret);
@@ -50,11 +50,8 @@ public:
 			ret.push_back(it);
 			if (it->right != nullptr)
 				sta.push(it->right);
-			if (it->left!= nullptr)
+			if (it->left != nullptr)
 				sta.push(it->left);
 		}
 	}
-
 };
-
-

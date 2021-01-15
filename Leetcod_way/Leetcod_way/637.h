@@ -33,7 +33,6 @@ struct TreeNode {
 class Solution {
 public:
 	vector<double> averageOfLevels(TreeNode* root) {
-
 		if (root == NULL)
 		{
 			return {};
@@ -54,7 +53,7 @@ public:
 				count++;
 				if (it->left != nullptr)
 					tmp.push_back(it->left);
-				if (it->right!= nullptr)
+				if (it->right != nullptr)
 					tmp.push_back(it->right);
 			}
 			double it = sum / count;

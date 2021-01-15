@@ -111,13 +111,12 @@ public:
 	Node* cloneGraph(Node* node) {
 	}
 
-	Node* dfs(Node* node,vector<Node*> &vec)
+	Node* dfs(Node* node, vector<Node*> &vec)
 	{
 		vec.push_back(new Node(node->val));
 		for (auto it : node->neighbors)
 		{
-			vec.back->nerghbors.push_back(dfs(it,vec));
+			vec.back->nerghbors.push_back(dfs(it, vec));
 		}
-
 	}
 };

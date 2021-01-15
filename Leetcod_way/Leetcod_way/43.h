@@ -33,7 +33,7 @@ public:
 			return num1;
 		string ret{};
 		int weight = 0;
-		for(auto it =num1.rbegin();it!=num1.rend();++it)
+		for (auto it = num1.rbegin(); it != num1.rend(); ++it)
 		{
 			string tmp{};
 			string_mul_char(num2, *it, tmp);
@@ -95,7 +95,7 @@ public:
 			else
 			{
 				ret[i] = (tmp % 10) + '0';
-				overflow = tmp / 10 ;
+				overflow = tmp / 10;
 			}
 		}
 		if (overflow != 0)

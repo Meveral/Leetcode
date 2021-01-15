@@ -33,12 +33,9 @@ bool relative(const string &s1, const string &s2)
 	return dif_count > 1 ? 0 : 1;
 }
 
-
-
 class Solution {
 public:
 	vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
-	
 		set<string> wordlist(wordList.begin(), wordList.end());
 		vector<wordProperty> words{};
 		vector<vector<string>> paths{};
@@ -52,14 +49,14 @@ public:
 		words.push_back(s);
 		for (auto it : wordlist)
 		{
-					words.push_back(wordProperty(0, INF, ++id, INF, it));
+			words.push_back(wordProperty(0, INF, ++id, INF, it));
 		}
-		
+
 		deque<wordProperty*> Q{ &*words.begin() };//in deque
 
 		while (!Q.empty())
 		{
-			auto &u =*Q.begin();
+			auto &u = *Q.begin();
 			for (auto &it : words)//all search range
 			{
 				if (it.color == 0)//accurate search range

@@ -27,18 +27,18 @@
 
 //Definition for a binary tree node.
 struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
 /*
 后序遍历最后的点为root节点,中序遍历root节点左侧为左子树，右侧为右子树.
 	1.找到postorder尾元素root,
-	
+
 */
- 
+
 class Solution {
 public:
 	using location = size_t;
@@ -51,29 +51,21 @@ public:
 		{
 			find_tree[inorder[i]] = i;
 		}
-			auto root_value= postorder.back();
-			auto it = find_tree[root_value];
-			TreeNode* root_node = new TreeNode(root_value);
-			root_node->left = do_left(0,it, inorder);	//[begin,end)
-			root_node->right= do_right(it+1,inorder.size(), inorder);
+		auto root_value = postorder.back();
+		auto it = find_tree[root_value];
+		TreeNode* root_node = new TreeNode(root_value);
+		root_node->left = do_left(0, it, inorder);	//[begin,end)
+		root_node->right = do_right(it + 1, inorder.size(), inorder);
 
-			return root_node;
-		}
-	
-		TreeNode* do_left(location begin,location end, vector<int>& inorder)
-		{
-			if (begin == end)
-				return new TreeNode(inorder[begin]);
-			TreeNode* tmp_node = new TreeNode(inorder[end]);
-			tmp_node->left = do_left()
+		return root_node;
+	}
 
-		}
-		TreeNode* do_right(location begin,location end, vector<int>& inorder);
-
-		
-		
-	
+	TreeNode* do_left(location begin, location end, vector<int>& inorder)
+	{
+		if (begin == end)
+			return new TreeNode(inorder[begin]);
+		TreeNode* tmp_node = new TreeNode(inorder[end]);
+		tmp_node->left = do_left()
+	}
+	TreeNode* do_right(location begin, location end, vector<int>& inorder);
 };
-
-
-
